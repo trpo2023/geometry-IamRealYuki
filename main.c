@@ -111,20 +111,9 @@ void circle(char figure[])
         return;
     }
 
-    if (figure[k] != ' ' && figure[k] != ',')
+    if (figure[k-1] != ',')
     {
         printf("Error at column %d: expected ','\n", k);
-    }
-
-    while (figure[k] == ' ')
-    {
-        k++;
-    }
-
-    if (figure[k] != ',')
-    {
-        printf("Error at column %d: expected ','\n", k);
-        return;
     }
 
     while (figure[k] == ' ')
@@ -158,7 +147,7 @@ void circle(char figure[])
     }
     else
     {
-        printf("succeed");
+        printf("succeed\n");
     }
 }
 
@@ -199,12 +188,12 @@ void triangle(char figure[])
         return;
     }
 
-    if (figure[k] == ')' || figure[k-1] != ',')
+    if (figure[k] == ')' || figure[k - 1] != ',')
     {
         printf("Error at column %d: expected ','\n", k);
         return;
     }
-    
+
     if (figure[k] == ',')
     {
         k++;
@@ -215,7 +204,7 @@ void triangle(char figure[])
         return;
     }
 
-    if (figure[k] == ')' || figure[k-1] != ',')
+    if (figure[k] == ')' || figure[k - 1] != ',')
     {
         printf("Error at column %d: expected ','\n", k);
         return;
@@ -230,7 +219,7 @@ void triangle(char figure[])
         return;
     }
 
-    if (figure[k] == ')' || figure[k-1] != ',')
+    if (figure[k] == ')' || figure[k - 1] != ',')
     {
         printf("Error at column %d: expected ','\n", k);
         return;
@@ -245,7 +234,7 @@ void triangle(char figure[])
         return;
     }
 
-    if (figure[k-1] != ')' || figure[k]!= ')')
+    if (figure[k - 1] != ')' || figure[k] != ')')
     {
         printf("Error at column %d: expected ')'\n", k);
     }
@@ -282,19 +271,19 @@ int main()
 
     figure2[0] = tolower(figure2[0]);
 
-      switch (figure2[0])
-      {
-      case 'c':
-          circle(figure2);
-          break;
-      case 't':
-          triangle(figure2);
-          break;
-      case 'p':
-          // polygon(figure2);
-          break;
-      default:
-          printf("Error at column 0: expected 'Circle', 'Triangle' or 'Polygon'");
-      } */
+    switch (figure2[0])
+    {
+    case 'c':
+        circle(figure2);
+        break;
+    case 't':
+        triangle(figure2);
+        break;
+    case 'p':
+        // polygon(figure2);
+        break;
+    default:
+        printf("Error at column 0: expected 'Circle', 'Triangle' or 'Polygon'");
+    }
     return 0;
 }
