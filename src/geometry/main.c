@@ -1,20 +1,17 @@
+#include <libgeometry/geometry.h>
 #include <stdio.h>
-#include "../libgeometry/geometry.h"
 
 int main()
 {
     double a, p;
     char figure[64];
 
-    while (1)
-    {
-        stdin(figure);
-        if (figure[0] == 'e')
-        {
+    while (1) {
+        fgets(figure, 64, stdin);
+        if (figure[0] == 'e') {
             return 0;
         }
-        if (circle(figure) == 0)
-        {
+        if (circle(figure) == 0) {
             p = perimeter(figure);
             a = area(figure);
 
