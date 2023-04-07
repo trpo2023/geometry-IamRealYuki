@@ -1,10 +1,4 @@
-main
-*.[oa]
-*~
-*swp
-bin/
-*.txt
-! input.txt
-myprog
+*.o
+*.d
 
 
