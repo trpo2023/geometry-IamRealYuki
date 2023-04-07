@@ -1,9 +1,9 @@
 #ifndef geometry
 
-int circle(char *str);
+int circle(char* str);
 
-double perimeter(char *str);
+double perimeter(char* str);
 
-double area(char *str);
+double area(char* str);
 
 #endif
