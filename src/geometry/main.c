@@ -1,5 +1,7 @@
-#include <libgeometry/geometry.h>
 #include <stdio.h>
+
+#include <libgeometry/calc.h>
+#include <libgeometry/geometry.h>
 
 int main()
 {

@@ -1,17 +1,17 @@
-APP_NAME = main.exe
+APP_NAME = main.
 LIB_STATIC = geometry
 LIB_DIR = libgeometry
 CC = gcc
 
-cflags = -Wall -Werror -o
-compflags = -Isrc/ -MP -MMD
+CFLAGS = -Wall -Werror
+CPPFLAGS = -Isrc -MP -MMD
 
 BIN_DIR = bin
 OBJ_DIR = obj
 SRC_DIR = src
 
 APP_PATH = $(BIN_DIR)/$(APP_NAME)
-LIB_PATH = $(OBJ_DIR)/$(SRC_DIR)/$(LIB_STATIC)/$(LIB_STATIC).a
+LIB_PATH = $(OBJ_DIR)/$(SRC_DIR)/$(LIB_DIR)/$(LIB_STATIC).a
 
 SRC_EXT = c
 
@@ -28,13 +28,13 @@ all: $(APP_PATH)
 
 -include $(DEPS)
 $(APP_PATH): $(APP_OBJECTS) $(LIB_PATH)
-	$(CC) $(CFLAGS) $(CPPFLAGS) $^ -o $@
+	$(CC) $(CFLAGS) $(CPPFLAGS) $^ -o $@ -lm
 
 $(LIB_PATH): $(LIB_OBJECTS)
 	ar rcs $@ $^
 
 $(OBJ_DIR)/%.o: %.c
-	$(CC) -c -Isrc -Wall -Werror -MP -MMD $(CFLAGS) $(CPPFLAGS) $< -o $@
+	$(CC) -c $(CFLAGS) $(CPPFLAGS) $< -o $@
 
 .PHONY: clean
 clean:
