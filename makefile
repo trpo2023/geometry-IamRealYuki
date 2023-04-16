@@ -41,7 +41,3 @@ clean:
 	$(RM) $(APP_PATH) $(LIB_PATH)
 	find $(OBJ_DIR) -name '*.o' -exec $(RM) '{}' \;
 	find $(OBJ_DIR) -name '*.d' -exec $(RM) '{}' \;
-
-
-
-

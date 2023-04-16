@@ -4,41 +4,38 @@
 #include <stdlib.h>
 #include <string.h>
 
+#include "libgeometry/calc.h"
+
 double FindRadius(char* str)
 {
-    int length = strlen(str);
+    int length = 0;
     char radius[10];
     while (str[length] != ',') {
-        length--;
-    }
-
-    length++;
-
-    while (str[length] == ' ') {
         length++;
     }
 
+    length++;
     int current = 0;
-    while (str[length] != ' ' && str[length] != ')') {
+    while (str[length] != ')') {
         radius[current] = str[length];
         current++;
-        length--;
+        length++;
     }
-    radius[current + 1] = '\0';
-    double a = atof(radius);
-    return a;
+    radius[current + 2] = '\0';
+    double Radius = atof(radius);
+    return Radius;
 }
 
 double perimeter(char str[])
 {
     double radius = FindRadius(str);
-    double a = M_PI * radius * 2;
-    return a;
+    double result = M_PI * radius * 2;
+    return result;
 }
 
 double area(char str[])
 {
     double radius = FindRadius(str);
-    double a = M_PI * radius * radius;
-    return a;
+    double result = M_PI * radius * radius;
+    return result;
 }
