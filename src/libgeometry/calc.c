@@ -69,13 +69,19 @@ double area(char* str, struct FigureInfo* current)
     return result;
 }
 
-void intersections(char* str, struct FigureInfo* current)
+int intersections(char* str, struct FigureInfo* current)
 {
+    if (current->radius == 0)
+        FindInfo(current, str);
     printf("Intersections:\n");
     if (current->prev == NULL) {
         printf("Это первый круг, и он ни с чем не может пересекаться\n\n");
-        return;
+        struct FigureInfo* node = current;
+        current = current->next;
+        current->prev = node;
+        return -1;
     }
+
     struct FigureInfo* tail = current;
     current = current->prev;
     int a = 0;
@@ -90,6 +96,9 @@ void intersections(char* str, struct FigureInfo* current)
         }
         current = current->prev;
     }
-    if (a == 0)
+    if (a == 0) {
         printf("No intersects\n");
+        return 0;
+    }
+    return a;
 }

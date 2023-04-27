@@ -13,7 +13,8 @@ int main()
     while (1) {
         current->circle = (char*)malloc(sizeof(struct FigureInfo));
         fgets(current->circle, 64, stdin);
-        if (current->circle[0] == 'e') {
+        int errcode = circle(current->circle);
+        if (errcode == 9) {
             return 0;
         }
         if (circle(current->circle) == 0) {
@@ -22,11 +23,13 @@ int main()
             p = perimeter(current->circle, current);
             a = area(current->circle, current);
             printf("perimeter: %f\narea: %f\n", p, a);
-            intersections(current->circle, current);
+            int i = intersections(current->circle, current);
+            a = a + i; // Чтобы покрыть тестами, функция должна что-то
+                       // возвращать, а чтобы не было неиспользуемых переменных,
+                       // надо их куда-то использовать!!!!!!!!!!!!!!! >:(
             struct FigureInfo* node = current;
             current = current->next;
             current->prev = node;
         }
     }
-    return 0;
 }
