@@ -1,5 +1,5 @@
 APP_NAME = main.
-TEST_NAME = test
+TEST_NAME = tests
 LIB_STATIC = geometry
 LIB_DIR = libgeometry
 CC = gcc
