@@ -15,8 +15,8 @@ jobs:
       - name: Build application
         run: make
 
-      - name: Build test
-        run: make test
+      - name: Build tests
+        run: make tests
 
-      - name: Start test
-        run: make run_test
+      - name: Start tests
+        run: make run_tests
