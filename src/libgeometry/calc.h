@@ -13,4 +13,4 @@ double perimeter(char* str, struct FigureInfo* current);
 
 double area(char* str, struct FigureInfo* current);
 
-void intersections(char* str, struct FigureInfo* current);
+int intersections(char* str, struct FigureInfo* current);
