@@ -96,11 +96,12 @@ CTEST(calc, intersections)
     node = current;
     current = current->next;
     current->prev = node;
-    current->circle = "circle(20 15, 9)";
+    current->circle = "circle(2 15, 9)";
+    current->Xcord = 0;
     current_exp->radius = 9;
-    current_exp->Xcord = 20;
+    current_exp->Xcord = 2;
     current_exp->Ycord = 15;
-    current_exp->circle = "circle(20 15, 9)";
+    current_exp->circle = "circle(2 15, 9)";
     i = intersections(current->circle, current);
     i_ex = 0;
 

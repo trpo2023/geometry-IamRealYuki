@@ -54,12 +54,12 @@ clean:
 run:
 	./$(APP_PATH)
 
-.PHONY: test
+.PHONY: test test_run
 test: $(TEST_PATH)
 
 $(TEST_PATH): $(TEST_OBJECTS) $(LIB_PATH)
 	$(CC) $(CFLAGS) $^ -o $@ -lm
 
 .PHONY: test_run
-test_run:
+test_run: $(TEST_PATH)
 	./$(TEST_PATH)
