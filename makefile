@@ -54,7 +54,7 @@ clean:
 run:
 	./$(APP_PATH)
 
-.PHONY: test test_run
+.PHONY: test
 test: $(TEST_PATH)
 
 $(TEST_PATH): $(TEST_OBJECTS) $(LIB_PATH)
