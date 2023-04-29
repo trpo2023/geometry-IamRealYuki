@@ -22,11 +22,8 @@ int main()
                     = (struct FigureInfo*)malloc(sizeof(struct FigureInfo));
             p = perimeter(current->circle, current);
             a = area(current->circle, current);
-            printf("perimeter: %f\narea: %f\n", p, a);
             int i = intersections(current->circle, current);
-            a = a + i; // Чтобы покрыть тестами, функция должна что-то
-                       // возвращать, а чтобы не было неиспользуемых переменных,
-                       // надо их куда-то использовать!!!!!!!!!!!!!!! >:(
+            printf("perimeter: %f\narea: %f\nintersections: %d\n\n", p, a, i);
             struct FigureInfo* node = current;
             current = current->next;
             current->prev = node;
